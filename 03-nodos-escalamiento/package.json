@@ -1,0 +1,13 @@
+{
+  "name": "03-nodos-escalamiento",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "node": "node src/worker-node.ts",
+    "balancer": "node src/balancer.ts",
+    "test:stress": "node src/stress-test.ts",
+    "cluster": "node src/cluster.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  }
+}

@@ -1,0 +1,9 @@
+node_modules/
+.env
+*.log
+.DS_Store
+coverage/
+
+# Datos pesados generados por el laboratorio de memoria
+04-memoria-ram/data/*
+!04-memoria-ram/data/.gitkeep

@@ -1,0 +1,26 @@
+{
+  "name": "bam-node-entregables",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Entregables de Node.js (cohorte Flutter Acelera TI): workers, API REST, escalamiento, memoria y colas.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "workspaces": [
+    "01-workers",
+    "02-api-restful",
+    "03-nodos-escalamiento",
+    "04-memoria-ram",
+    "05-colas-prioridad"
+  ],
+  "scripts": {
+    "typecheck": "npm run typecheck --workspaces",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "typescript": "5.9.3",
+    "vitest": "5.0.5"
+  }
+}

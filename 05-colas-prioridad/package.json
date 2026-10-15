@@ -1,0 +1,12 @@
+{
+  "name": "05-colas-prioridad",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/app.ts",
+    "http": "node src/http-demo.ts",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json"
+  }
+}

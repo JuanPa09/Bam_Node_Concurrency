@@ -1,0 +1,39 @@
+### Peticiones para la extensión REST Client de VS Code (o el cliente HTTP de JetBrains).
+### Haz clic en "Send Request" sobre cada una.
+
+@base = http://localhost:3000/api/v1/credit-cards
+@userId = 8f6d3c1e-2a4b-4c5d-9e8f-0a1b2c3d4e01
+
+### Crear tarjeta -> 201
+# @name created
+POST {{base}}
+Content-Type: application/json
+
+{ "userId": "{{userId}}", "cardNumber": "4111 1111 1111 1111", "expiry": "12/29", "cvv": "123", "creditLimit": 5000 }
+
+### Listar activas -> 200
+GET {{base}}
+
+### Obtener por id -> 200
+GET {{base}}/{{created.response.body.id}}
+
+### Actualizar -> 200
+PATCH {{base}}/{{created.response.body.id}}
+Content-Type: application/json
+
+{ "creditLimit": 7500.25, "status": "BLOCKED" }
+
+### Eliminar (soft delete) -> 204
+DELETE {{base}}/{{created.response.body.id}}
+
+### Falta creditLimit -> 400
+POST {{base}}
+Content-Type: application/json
+
+{ "userId": "{{userId}}", "cardNumber": "4111111111111111", "expiry": "12/29", "cvv": "123" }
+
+### Validar sin guardar: muestra cada regla incumplida
+POST {{base}}/validate
+Content-Type: application/json
+
+{ "cardNumber": "3782822463100051", "expiry": "01/24", "cvv": "12a" }
